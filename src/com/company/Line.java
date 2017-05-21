@@ -3,16 +3,16 @@ package com.company;
 
 class Line {
 
-    private int dx = 0;
+    private double dx = 0.0;
     private boolean move, invert, crashed = false;
     private int[] lineX = new int[50];
     private int[] lineY = new int[50];
     private int x1, y1, count;
-    private static int width, edge;
+    private static int width, widthLine;
 
-    Line(int width, int height, int edge) {
+    Line(int width, int height, int widthLine) {
         Line.width = width;
-        Line.edge = edge;
+        Line.widthLine = widthLine;
         x1 = width / 2;
         y1 = height / 5 * 3;
     }
@@ -24,18 +24,18 @@ class Line {
         } else {
             invert = false;
             x1 = width / 2;
-            dx = 0;
+            dx = 0.0;
         }
         paintLine();
     }
 
     private void speedup() {
         if (invert) {
-            if (dx > 0) dx -= 3;
-            else dx -= 1;
+            if (dx > 0) dx -= 1;
+            else dx -= 0.5;
         } else {
-            if (dx < 0) dx += 3;
-            else dx += 1;
+            if (dx < 0) dx += 1;
+            else dx += 0.5;
         }
     }
 
@@ -46,7 +46,7 @@ class Line {
 
     private void move() {
         x1 += dx;
-        if (x1 <= 0 || x1 >= width - edge/2) {
+        if (x1 <= 0 || x1 >= width - widthLine) {
             move = false;
             crashed = true;
         }
@@ -56,7 +56,7 @@ class Line {
         lineX[count] = x1;
         lineY[count] = y1;
         for (int i = 0; i < count; i++) {
-            lineY[i] += 8;                  //длина/скорость/закругление line
+            lineY[i] += 6;                  //длина/скорость/закругление line
         }
         if (count < 49) {
             count++;

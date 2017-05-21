@@ -9,8 +9,7 @@ public class Main extends JFrame {
     private Main(String title) {
         super(title);
         setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
-        MainPanel mainPanel = new MainPanel(DEFAULT_WIDTH, DEFAULT_HEIGHT);
-        add(mainPanel);
+        add(new MainPanel(DEFAULT_WIDTH, DEFAULT_HEIGHT));
         setVisible(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }

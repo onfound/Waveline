@@ -2,30 +2,28 @@ package com.company;
 
 import java.util.Random;
 
-class Sticks {
-    static final int delay = -300;
+class Stick {
+    static final int delay = -350;
     private int x1, x2, x3, x4, y;
     private static int width, height;
     private static int rm, rm1 = 3;
     private boolean doubleSticks;
 
 
-    Sticks(int width, int height) {
-        Sticks.width = width;
-        Sticks.height = height;
+    Stick(int width, int height) {
+        Stick.width = width;
+        Stick.height = height;
         this.y = delay;
         changeStick();
     }
 
     void start() {
-
-        if (y > height) {
+        if (y > height + new Random().nextInt(3) * 100) {
             changeStick();
             y = 0;
         }
         move();
     }
-
 
     private void changeStick() {
         doubleSticks = false;
@@ -58,7 +56,7 @@ class Sticks {
     }
 
     private void move() {
-        y += 8;     // доделать статичное передвижение
+        y += 6;     // доделать статичное передвижение
     }
 
     int getX3() {
