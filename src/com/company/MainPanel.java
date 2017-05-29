@@ -38,7 +38,7 @@ class MainPanel extends JPanel {
         text = new TextForPlay().getText();
         file = new File("data\\db\\score.txt");
         score = oldScore = 0;
-        maxScore = this.readScore();
+        maxScore = readScore();
 
         /* Default paintComponent*/
 
@@ -92,7 +92,7 @@ class MainPanel extends JPanel {
             }
         };
         Timer timer1 = new Timer(10, timeListener);
-        Timer timer2 = new Timer(20, timeListener1);
+        Timer timer2 = new Timer(14, timeListener1);
         timer1.start();
         timer2.start();
     }
@@ -138,7 +138,7 @@ class MainPanel extends JPanel {
         }
         if (!startGame) {
             g2d.setColor(Color.WHITE);
-            g2d.drawString(text, 130, 100);
+            g2d.drawString(text, (getWidth() - text.length() * 20) / 2, 100);
         }
     }
 
@@ -177,12 +177,12 @@ class MainPanel extends JPanel {
             g2d.drawString("you new record: " + score, 120, 300);
             writeScore(maxScore);
         } else {
-            g2d.drawString("Best scrore: " + maxScore, 120, 400);
+            g2d.drawString("Best scrore: " + maxScore, 100, 400);
             g2d.setFont(font.deriveFont(Font.BOLD, 35));
-            g2d.drawString("You scrore: " + score, 170, 300);
+            g2d.drawString("You scrore: " + score, 150, 300);
         }
         g2d.setFont(font.deriveFont(Font.BOLD, 20));
-        g2d.drawString("press enter to replay", 170, 500);
+        g2d.drawString("press enter to replay", 150, 500);
     }
 
     private void writeScore(int maxScore) {
@@ -194,11 +194,11 @@ class MainPanel extends JPanel {
             e.printStackTrace();
         }
     }
-    private Integer readScore(){
+
+    private Integer readScore() {
         try (BufferedReader in = new BufferedReader(new FileReader(file.getAbsoluteFile()))) {
             return new Integer(in.readLine());
-        }
-        catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return null;
