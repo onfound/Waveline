@@ -4,17 +4,17 @@ package com.company;
 class Line {
 
     private double dx = 0.0;
-    private boolean move, invert, crashed = false;
     private int[] lineX = new int[50];
     private int[] lineY = new int[50];
+    private boolean move, invert, crashed = false;
     private int x1, y1, count;
-    private static int width, widthLine;
+    private int width, widthLine;
 
     Line(int width, int height, int widthLine) {
-        Line.width = width;
-        Line.widthLine = widthLine;
+        this.width = width;
+        this.widthLine = widthLine;
         x1 = width / 2;
-        y1 = height / 5 * 3;
+        y1 = height / 5 * 3 ;
     }
 
     void start() {
@@ -46,7 +46,7 @@ class Line {
 
     private void move() {
         x1 += dx;
-        if (x1 <= 0 || x1 >= width - widthLine) {
+        if (x1 <= 0 || x1 >= width - widthLine * 2) {
             move = false;
             crashed = true;
         }
@@ -85,7 +85,6 @@ class Line {
     }
 
     int[] getLineY() {
-
         return lineY;
     }
 

@@ -1,27 +1,24 @@
 package com.company;
 
+import java.awt.*;
 import java.util.Random;
 
 class Stick {
-    static final int delay = -350;
     private int x1, x2, x3, x4, y;
-    private static int width, height;
-    private static int rm, rm1 = 3;
+    final static int delay = -350;
+    private int width, height;
+    private static int rm, rm1;
     private boolean doubleSticks;
 
 
     Stick(int width, int height) {
-        Stick.width = width;
-        Stick.height = height;
+        this.width = width;
+        this.height = height;
         this.y = delay;
         changeStick();
     }
 
     void start() {
-        if (y > height + new Random().nextInt(3) * 100) {
-            changeStick();
-            y = 0;
-        }
         move();
     }
 
@@ -56,7 +53,11 @@ class Stick {
     }
 
     private void move() {
-        y += 6;     // доделать статичное передвижение
+        if (y > height) {
+            changeStick();
+            y = delay;
+        }
+        y += 6;
     }
 
     int getX3() {
