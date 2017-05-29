@@ -182,7 +182,7 @@ class MainPanel extends JPanel {
             g2d.drawString("You scrore: " + score, 150, 300);
         }
         g2d.setFont(font.deriveFont(Font.BOLD, 20));
-        g2d.drawString("press enter to replay", 150, 500);
+        g2d.drawString("press enter to replay", 170, 500);
     }
 
     private void writeScore(int maxScore) {
@@ -201,6 +201,6 @@ class MainPanel extends JPanel {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        return 0;
     }
 }
