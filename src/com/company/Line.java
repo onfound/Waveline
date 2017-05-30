@@ -4,11 +4,11 @@ package com.company;
 class Line {
 
     private double dx = 0.0;
-    private int[] lineX = new int[50];
-    private int[] lineY = new int[50];
+    private final int[] lineX = new int[50];
+    private final int[] lineY = new int[50];
     private boolean move, invert, crashed = false;
     private int x1, y1, count;
-    private int width, widthLine;
+    private final int width, widthLine;
 
     Line(int width, int height, int widthLine) {
         this.width = width;

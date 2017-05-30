@@ -16,6 +16,7 @@ class TextForPlay {
         text.add("Feel the cold?");
         text.add("Keep moving!");
         text.add("Happy curving");
+
     }
     String getText(){
         return text.get(new Random().nextInt(text.size()-1));

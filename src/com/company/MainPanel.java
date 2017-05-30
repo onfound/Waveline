@@ -18,7 +18,7 @@ class MainPanel extends JPanel {
     private int oldScore;
     private int maxScore;
     private int count;
-    private int heightPanel;
+    private final int heightPanel;
     private long timeMS;
     private int distanceStick;
     private String text;

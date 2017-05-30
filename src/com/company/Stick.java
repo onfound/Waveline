@@ -5,7 +5,7 @@ import java.util.Random;
 class Stick {
     private int x1, x2, x3, x4, y;
     final static int delay = -350;
-    private int width, height;
+    private final int width, height;
     private static int rm, rm1;
     private boolean doubleSticks;
 
